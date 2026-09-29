@@ -1,0 +1,97 @@
+/* Container */
+.login-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh; /* Changed to min-height for better responsiveness */
+    background-color: #f5f7fa;
+    font-family: sans-serif; /* Added a clean default font */
+}
+
+/* Heading */
+.login-container h2 {
+    text-align: center; /* Changed from 'align-items: center' which only works on flex containers */
+    margin-bottom: 20px;
+    color: #333;
+}
+
+/* Success Message Box */
+.success-message {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    border: 1px solid #badbcc;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    width: 320px;
+    box-sizing: border-box; /* Keeps padding inside the defined width */
+    text-align: center;
+    font-size: 14px;
+}
+
+/* Form-Box */
+.login-form {
+    background: #ffffff;
+    padding: 25px 30px;
+    border-radius: 10px;
+    width: 320px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    box-sizing: border-box; /* Essential to prevent padding from expanding the width */
+}
+
+/* Input Group  */
+.form-group {
+    margin-bottom: 15px;
+}
+
+/* Labels */
+.form-group label {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Inputs */
+.form-group input {
+    width: 100%;
+    padding: 8px 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: 0.3s;
+    box-sizing: border-box; /* CRITICAL: Prevents 100% width inputs from breaking out of the form container */
+}
+
+/* Input Focus  */
+.form-group input:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 4px rgba(13, 110, 253, 0.5);
+}
+
+/* Error Message */
+.error {
+    color: #dc3545; /* Changed to a softer, modern red */
+    font-size: 12px;
+    margin-top: 5px;
+    margin-bottom: 0;
+}
+
+/* Button */
+.login-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #0d6efd;
+    border: none;
+    color: white;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+/* Button Hover */
+.login-btn:hover {
+    background-color: #0b5ed7; /* Replaced 'darkblue' with a proper shade matching the blue primary color */
+}

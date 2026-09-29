@@ -1,0 +1,76 @@
+/* ==========================================================================
+   1. Products Page Section Container
+   ========================================================================== */
+.products-page {
+    padding: 30px 5%; /* Flexible padding side-boundaries instead of rigid pixel settings */
+    background-color: #f8f9fa; /* Clean workspace background context */
+    min-height: 100vh;
+}
+
+.products-page h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #212529;
+    margin-bottom: 30px;
+    text-align: center;
+    position: relative;
+    padding-bottom: 12px;
+}
+
+/* Red underline detail beneath the header title text to match branding aesthetics */
+.products-page h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background-color: #dc3545; /* Matches your ShopKart logo brand accent colors */
+    border-radius: 2px;
+}
+
+/* ==========================================================================
+   2. Dynamic Responsive Product Grid Layout
+   ========================================================================== */
+.product-container {
+    display: grid;
+    /* Grid system automatically scales and wraps columns fluidly */
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 25px; /* Comfortable breathing margins between adjacent item elements */
+    padding: 15px 0;
+}
+
+/* ==========================================================================
+   3. Adaptive Device Breakpoints (Media Queries)
+   ========================================================================== */
+
+/* Large Monitor Displays: Lock grid columns into a stable 5-column track array */
+@media (min-width: 1400px) {
+    .product-container {
+        grid-template-columns: repeat(5, 1fr); /* Preserves your standard 5-column assignment track */
+    }
+}
+
+/* Small Laptops and Medium Screens */
+@media (max-width: 992px) {
+    .product-container {
+        gap: 20px;
+    }
+}
+
+/* Handheld Mobile & Tablet viewports */
+@media (max-width: 576px) {
+    .products-page {
+        padding: 20px 15px;
+    }
+    
+    .products-page h2 {
+        font-size: 22px;
+    }
+    
+    .product-container {
+        grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); /* Double row display on slim phones */
+        gap: 12px;
+    }
+}
