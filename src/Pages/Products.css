@@ -74,3 +74,40 @@
         gap: 12px;
     }
 }
+/* Products Page Layout & Headings */
+.products-page-container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 20px 40px;
+    background-color: transparent;
+}
+
+.products-page-container h2,
+.products-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 25px;
+    color: #1e293b;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+/* Red underline accent for page titles */
+.products-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background-color: #dc3545;
+    border-radius: 2px;
+}
+
+body.theme-dark .products-page-container h2,
+body.theme-dark .products-title {
+    color: #f8fafc !important;
+}

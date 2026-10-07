@@ -1,91 +1,106 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 import "./Register.css";
 
 function Register() {
-  const { register, handleSubmit, formState: { errors }, reset } = useForm();
-  const [SuccessMessage, setSuccessMessage] = useState("");
+  const {
+    register,
+    handleSubmit,
+    watch,
+    formState: { errors },
+    reset,
+  } = useForm();
+  
+  const [successMessage, setSuccessMessage] = useState("");
+  const passwordValue = watch("password");
 
   const onSubmit = (data) => {
-    console.log("Registration Data", data);
-    setSuccessMessage(`Registration Successful! Welcome, ${data.name}.`);
+    console.log("Registration Payload:", data);
+    setSuccessMessage(`Registration successful! Welcome, ${data.name}.`);
     reset();
-  }; // Removed the stray }; that was right below this line
+  };
 
   return (
     <div className="login-container">
       <h2>User Registration</h2>
-      
-      {SuccessMessage && (
-        <div className="success-message">
-          {SuccessMessage}
-        </div>
-      )}
 
-      <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
+      {successMessage && <div className="success-message">{successMessage}</div>}
+
+      <form className="login-form" onSubmit={handleSubmit(onSubmit)} noValidate>
         {/* Name */}
         <div className="form-group">
-          <label htmlFor="name">Name : </label>
-          <br />
-          <input 
-            id="name" 
-            type="text" 
+          <label htmlFor="reg-name">Name</label>
+          <input
+            id="reg-name"
+            type="text"
             placeholder="Enter your name"
-            {...register("name", { required: "Name is Required" })} 
+            {...register("name", { required: "Name is required" })}
           />
-          <p className="error">{errors.name?.message}</p>
+          {errors.name && <p className="error">{errors.name.message}</p>}
         </div>
 
         {/* Email */}
         <div className="form-group">
-          <label htmlFor="email">Email : </label>
-          <br />
-          <input 
-            id="email" 
-            type="email" 
+          <label htmlFor="reg-email">Email</label>
+          <input
+            id="reg-email"
+            type="email"
             placeholder="Enter your email"
             {...register("email", {
-              required: "Email is Required",
+              required: "Email is required",
               pattern: {
-                        value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                        message: "Invalid email format"
-                      },
-            })} 
+                value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
+                message: "Invalid email format",
+              },
+            })}
           />
-          <p className="error">{errors.email?.message}</p>
+          {errors.email && <p className="error">{errors.email.message}</p>}
         </div>
 
         {/* Password */}
         <div className="form-group">
-          <label htmlFor="password">Password :</label>
-          <br />
-          <input 
-            id="password" 
-            type="password" 
-            placeholder="Password"
-            {...register("password", { required: "Password is Required" })} 
+          <label htmlFor="reg-password">Password</label>
+          <input
+            id="reg-password"
+            type="password"
+            placeholder="Create password"
+            {...register("password", {
+              required: "Password is required",
+              minLength: {
+                value: 6,
+                message: "Password must be at least 6 characters",
+              },
+            })}
           />
-          <p className="error">{errors.password?.message}</p>
+          {errors.password && <p className="error">{errors.password.message}</p>}
         </div>
 
-        {/* Password */}
+        {/* Confirm Password */}
         <div className="form-group">
-          <label htmlFor="Confirmpassword">Password :</label>
-          <br />
-          <input 
-            id="Confirmpassword" 
-            type="password" 
-            placeholder="ConfirmPassword"
-            {...register("password", { required: "Password is Required" })} 
+          <label htmlFor="reg-confirm-password">Confirm Password</label>
+          <input
+            id="reg-confirm-password"
+            type="password"
+            placeholder="Re-enter password"
+            {...register("confirmPassword", {
+              required: "Please confirm your password",
+              validate: (val) => val === passwordValue || "Passwords do not match",
+            })}
           />
-          <p className="error">{errors.password?.message}</p>
+          {errors.confirmPassword && (
+            <p className="error">{errors.confirmPassword.message}</p>
+          )}
         </div>
 
         <button type="submit" className="login-btn">Register</button>
+
+        <p style={{ marginTop: "15px", fontSize: "13px", textAlign: "center" }}>
+          Already have an account? <Link to="/login" style={{ color: "#0d6efd" }}>Login</Link>
+        </p>
       </form>
     </div>
   );
 }
-
 
 export default Register;

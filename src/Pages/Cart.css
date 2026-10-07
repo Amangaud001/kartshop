@@ -1,0 +1,280 @@
+.cart-page {
+  width: 100%;
+  max-width: 100vw;
+  box-sizing: border-box;
+  font-family: inherit;
+}
+
+.cart-container {
+  width: calc(100% - 40px);
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, calc(100% - 420px)) 400px;
+  gap: 20px;
+  align-items: start;
+}
+
+/* Table Card */
+.cart-table-wrapper {
+  background: #ffffff;
+  border: 1px solid #dfe4e8;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.cart-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.cart-table th {
+  height: 50px;
+  padding: 0 16px;
+  text-align: left;
+  color: #64748b;
+  font-size: 13px;
+  font-weight: 600;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.cart-table td {
+  padding: 16px;
+  vertical-align: middle;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.cart-item-row:last-child td {
+  border-bottom: none;
+}
+
+.cart-product {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.cart-product-image {
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+  background: #f1f5f9;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart-product-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.cart-product-info h3 {
+  margin: 0 0 4px;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.cart-category {
+  margin: 0;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.cart-price strong, .item-total {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.original-price {
+  font-size: 13px;
+  color: #94a3b8;
+  text-decoration: line-through;
+  margin-left: 6px;
+}
+
+.quantity-control {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.quantity-control button {
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-size: 16px;
+  color: inherit;
+}
+
+.quantity-control span {
+  width: 36px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  border-left: 1px solid #cbd5e1;
+  border-right: 1px solid #cbd5e1;
+}
+
+.delete-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.cart-footer {
+  padding: 16px;
+}
+
+.clear-cart-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  background: #ffffff;
+  color: #334155;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+/* Sidebar Order Summary */
+.order-summary {
+  background: #ffffff;
+  border: 1px solid #dfe4e8;
+  border-radius: 12px;
+  padding: 22px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+
+.order-summary h2 {
+  font-size: 20px;
+  margin-bottom: 16px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 14px;
+  color: #475569;
+}
+
+.summary-divider {
+  height: 1px;
+  background: #e2e8f0;
+  margin: 12px 0;
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.checkout-btn {
+  width: 100%;
+  height: 44px;
+  margin-top: 18px;
+  background: #008a76;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.coupon-btn {
+  width: 100%;
+  height: 44px;
+  margin-top: 10px;
+  background: transparent;
+  border: 1px solid #008a76;
+  color: #008a76;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.secure-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px;
+  margin-top: 16px;
+  border: 1px solid #dfe4e8;
+  border-radius: 8px;
+  background: #f8fafc;
+}
+
+.cart-navigation {
+  width: calc(100% - 40px);
+  max-width: 1440px;
+  margin: 20px auto 0;
+}
+
+.continue-shopping {
+  color: #008a76;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ==========================================================================
+   CART DARK THEME ADJUSTMENTS
+   ========================================================================== */
+body.theme-dark .cart-table-wrapper,
+body.theme-dark .order-summary {
+  background: #161f30;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+body.theme-dark .cart-table th {
+  color: #94a3b8;
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+body.theme-dark .cart-table td {
+  border-bottom-color: rgba(255, 255, 255, 0.06);
+}
+
+body.theme-dark .cart-product-image {
+  background: #0f172a;
+}
+
+body.theme-dark .quantity-control {
+  background: #0f172a;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+
+body.theme-dark .quantity-control span {
+  border-left-color: rgba(255, 255, 255, 0.15);
+  border-right-color: rgba(255, 255, 255, 0.15);
+}
+
+body.theme-dark .clear-cart-btn {
+  background: #0f172a;
+  border-color: rgba(255, 255, 255, 0.15);
+  color: #f8fafc;
+}
+
+body.theme-dark .secure-box {
+  background: #101827;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+body.theme-dark .summary-divider {
+  background: rgba(255, 255, 255, 0.08);
+}

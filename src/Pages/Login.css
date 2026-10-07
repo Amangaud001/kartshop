@@ -4,16 +4,20 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 80vh; /* Changed to min-height for better responsiveness */
-    background-color: #f5f7fa;
-    font-family: sans-serif; /* Added a clean default font */
+    min-height: calc(80vh - 100px);
+    background-color: transparent; /* Allows theme background to show */
+    font-family: inherit;
+    padding: 20px;
 }
 
 /* Heading */
 .login-container h2 {
-    text-align: center; /* Changed from 'align-items: center' which only works on flex containers */
-    margin-bottom: 20px;
-    color: #333;
+    text-align: center;
+    margin-bottom: 24px;
+    font-size: 26px;
+    font-weight: 700;
+    color: #1e293b;
+    transition: color 0.3s ease;
 }
 
 /* Success Message Box */
@@ -22,76 +26,135 @@
     color: #0f5132;
     border: 1px solid #badbcc;
     padding: 10px 15px;
-    border-radius: 5px;
-    margin-bottom: 15px;
-    width: 320px;
-    box-sizing: border-box; /* Keeps padding inside the defined width */
+    border-radius: 6px;
+    margin-bottom: 18px;
+    width: 360px;
+    box-sizing: border-box;
     text-align: center;
     font-size: 14px;
 }
 
-/* Form-Box */
+/* Form-Box (Light mode default) */
 .login-form {
     background: #ffffff;
-    padding: 25px 30px;
-    border-radius: 10px;
-    width: 320px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    box-sizing: border-box; /* Essential to prevent padding from expanding the width */
+    padding: 30px;
+    border-radius: 12px;
+    width: 360px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    box-sizing: border-box;
+    border: 1px solid rgba(0,0,0,0.06);
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-/* Input Group  */
+/* Input Group */
 .form-group {
-    margin-bottom: 15px;
+    margin-bottom: 16px;
 }
 
 /* Labels */
 .form-group label {
+    display: inline-block;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
+    margin-bottom: 6px;
+    color: #334155;
 }
 
 /* Inputs */
 .form-group input {
     width: 100%;
-    padding: 8px 10px;
-    margin-top: 5px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    padding: 10px 12px;
+    border: 1px solid #cbd5e1;
+    border-radius: 6px;
     outline: none;
-    transition: 0.3s;
-    box-sizing: border-box; /* CRITICAL: Prevents 100% width inputs from breaking out of the form container */
+    font-size: 14px;
+    background-color: #f8fafc;
+    color: #0f172a;
+    transition: border-color 0.2s, box-shadow 0.2s;
+    box-sizing: border-box;
 }
 
-/* Input Focus  */
 .form-group input:focus {
     border-color: #0d6efd;
-    box-shadow: 0 0 4px rgba(13, 110, 253, 0.5);
+    box-shadow: 0 0 0 3px rgba(13, 110, 253, 0.15);
+    background-color: #ffffff;
 }
 
 /* Error Message */
 .error {
-    color: #dc3545; /* Changed to a softer, modern red */
+    color: #dc3545;
     font-size: 12px;
     margin-top: 5px;
     margin-bottom: 0;
 }
 
-/* Button */
+/* Primary Action Button */
 .login-btn {
     width: 100%;
-    padding: 10px;
+    padding: 12px;
     background-color: #0d6efd;
     border: none;
     color: white;
     font-size: 15px;
-    border-radius: 5px;
+    font-weight: 600;
+    border-radius: 6px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: background-color 0.2s;
     margin-top: 10px;
 }
 
-/* Button Hover */
 .login-btn:hover {
-    background-color: #0b5ed7; /* Replaced 'darkblue' with a proper shade matching the blue primary color */
+    background-color: #0b5ed7;
+}
+
+.form-subtext {
+    margin-top: 18px;
+    font-size: 13px;
+    text-align: center;
+    color: #64748b;
+}
+
+.form-subtext a {
+    color: #0d6efd;
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   Dark Theme Rules for Login/Register
+   ========================================================================== */
+body.theme-dark .login-container h2 {
+    color: #f8fafc !important;
+}
+
+body.theme-dark .login-form {
+    background-color: #161f30 !important;
+    border-color: rgba(255, 255, 255, 0.08) !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+body.theme-dark .form-group label {
+    color: #cbd5e1 !important;
+}
+
+body.theme-dark .form-group input {
+    background-color: #0d1424 !important;
+    border-color: rgba(255, 255, 255, 0.12) !important;
+    color: #f8fafc !important;
+}
+
+body.theme-dark .form-group input::placeholder {
+    color: #64748b;
+}
+
+body.theme-dark .form-group input:focus {
+    border-color: #3b82f6 !important;
+    background-color: #0d1424 !important;
+}
+
+body.theme-dark .form-subtext {
+    color: #94a3b8 !important;
+}
+
+body.theme-dark .form-subtext a {
+    color: #38bdf8 !important;
 }

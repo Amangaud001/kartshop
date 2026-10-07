@@ -5,14 +5,13 @@ import Products from "./Pages/Products";
 import Cart from "./Pages/Cart";
 import Login from "./Pages/Login";
 import Register from "./Pages/Register";
+import { ThemeProvider } from "./context/ThemeContext";
 import "./App.css";
 
 function App() {
   return (
-    <div>
+    <ThemeProvider>
       <Header />
-
-      {/* Added semantic layout wrapper element here */}
       <main className="main-content">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -22,7 +21,7 @@ function App() {
           <Route path="/register" element={<Register />} />
         </Routes>
       </main>
-    </div>
+    </ThemeProvider>
   );
 }
 

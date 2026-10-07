@@ -1,16 +1,23 @@
+import React from "react";
 import "./ProductCard.css";
 
-// Added object destructuring for props inside the parentheses
-function ProductCard({ image, title, price }) {
+function ProductCard({ id, image, title, price, onAddToCart }) {
   return (
     <div className="product-card">
       <div className="product-image">
-        {/* Fixed the self-closing img tag and attributes placement */}
-        <img src={image} alt={title} />
+        <img src={image} alt={title || "Product item"} loading="lazy" />
       </div>
 
       <h3>{title}</h3>
-      <p>₹{price}</p>
+      <p>₹{Number(price).toLocaleString("en-IN")}</p>
+
+      <button 
+        type="button" 
+        className="btn-add" 
+        onClick={() => onAddToCart && onAddToCart({ id, image, title, price })}
+      >
+        Add to Cart
+      </button>
     </div>
   );
 }
